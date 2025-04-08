@@ -1,0 +1,32 @@
+# 🔄 REXX: Remove Duplicates and Sort by Key
+
+This REXX script reads records from a dataset, removes duplicates based on a key (columns 25–32), sorts the remaining records in ascending order of that key, and writes the output to another dataset.
+
+## 📌 Problem Statement
+
+Eliminate duplicate records in a flat file and sort the unique records using a key present at a fixed position.
+
+## 📁 Files
+
+- `SORTDUP.rexx` - Main REXX script
+- Input dataset: `Z67429.REXX.INPUT`
+- Output dataset: `Z67429.REXX.OUTPUT`
+
+## 📥 Input Format
+
+- Fixed-length records (RECFM=FB), LRECL=100
+- Key for duplicate removal and sorting is in columns 25–32
+
+## 🚀 How to Run
+
+1. Upload `SORTDUP.rexx` to your PDS (e.g. `Z67429.REXX(SORTDUP)`)
+2. Ensure input dataset `Z67429.REXX.INPUT` exists
+3. Run using Zowe CLI: zowe tso send as Z67429-287-aaeuaacv --data "exec 'Z67429.REXX(SORTDUP)'"
+4. View output: zowe files view data-set "Z67429.REXX.OUTPUT"
+
+## ✅ Features
+
+- File I/O using `LINEIN` and `LINEOUT`
+- Duplicate detection using associative arrays
+- Key-based sorting
+- TSO command integration
